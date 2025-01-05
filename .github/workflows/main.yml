@@ -35,9 +35,9 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
 
-          build-args: |
-            USER_ID='php'
-            GROUP_ID='php'
+          # build-args: |
+          #   USER_ID='php'
+          #   GROUP_ID='php'
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
