@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Título</title>
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+				margin: 0;
+				padding: 0;
+				background-color: #f0f0f0;
+				color: #333;
+			}
+		</style>
+
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/jodit@4.0.1/es2021/jodit.min.css"
+		/>
+		<script src="https://unpkg.com/jodit@4.0.1/es2021/jodit.min.js"></script>
+	</head>
+
+	<body>
+		<h1 style="text-align: center">¡Hola mundo!</h1>
+
+		<div
+			style="
+				width: 80%;
+				margin: 0 auto;
+				padding: 20px;
+				background-color: #fff;
+				border-radius: 5px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+			"
+		>
+			<textarea id="editor" name="editor"></textarea>
+		</div>
+
+		<script>
+			const config = {
+				theme: "dark",
+				uploader: {
+					url: "http://localhost:8000/filefind/index.php?action=fileUpload",
+					headers: {
+						"X-WEBSLAB-Token": "TOKEN",
+						"X-WEBSLAB-Project": "base",
+					},
+					prepareData: (formdata) => {
+						formdata.append("name", "Some parameter"); // $_POST['name'] on server
+					},
+				},
+				filebrowser: {
+					ajax: {
+						url: "http://localhost:8000/filefind/index.php",
+						headers: {
+							"X-WEBSLAB-Token": "TOKEN",
+							"X-WEBSLAB-Project": "base",
+						},
+					},
+				},
+			};
+
+			const editor = Jodit.make("#editor", config);
+			editor.value = "<h2>start</2>";
+		</script>
+	</body>
+</html>

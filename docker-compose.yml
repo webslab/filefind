@@ -1,0 +1,23 @@
+services:
+  web:
+    image: nginx:alpine
+    ports:
+      - "8000:80"
+    volumes:
+      - ./dist:/var/www/html
+      - extra:/var/www/html/assets/extra
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
+    links:
+      - php-fpm
+
+  php-fpm:
+    image: filefind:latest
+    volumes:
+      - ./Application.php:/app/Application.php
+      - ./config.php:/app/config.php
+      - ./index.php:/app/index.php
+      - extra:/app/resources
+
+# extra volume with permissions for read and write
+volumes:
+  extra:

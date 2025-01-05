@@ -1,0 +1,9 @@
+{
+	"tasks": {
+		"dev": "podman run --rm --name filefind -it -p 8000:9000 webslab/filefind",
+		"build": "podman build --rm -t webslab/filefind .",
+		"newversion": "composer upgrade && npm version patch --no-git-tag-version && npm run github",
+		"github": "git add --all  && git commit -m \"New version $npm_package_version. Read more https://github.com/xdan/jodit-connectors/ \" && git tag $npm_package_version && git push --tags origin HEAD:master"
+	},
+	"imports": {}
+}
