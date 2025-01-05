@@ -1,7 +1,7 @@
 # config.php
 vendor/
 
-composer.lock
+# composer.lock
 .idea/
 
 tests/_data/
