@@ -10,8 +10,8 @@ RUN composer install --ignore-platform-req=ext-gd
 
 ##
 FROM php:8.1-fpm-alpine
-# RUN apk add --no-cache libpng-dev libjpeg-turbo-dev libwebp-dev libxpm-dev libvpx-dev
-RUN apk add --no-cache libpng-dev libwebp-dev
+# RUN apk add --no-cache libpng-dev libwebp-dev
+RUN apk add --no-cache libpng-dev libjpeg-turbo-dev libwebp-dev libxpm-dev libvpx-dev
 RUN docker-php-ext-install gd
 
 #ADD docker/php.ini /usr/local/etc/php/php.ini
