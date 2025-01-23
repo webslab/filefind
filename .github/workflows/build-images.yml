@@ -10,7 +10,7 @@ on:
 
 jobs:
   build_image_docker:
-    name: Build docker images
+    name: Image build for docker
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -63,7 +63,7 @@ jobs:
         run: echo ${{ steps.docker_build.outputs.digest }}
 
   build_image_ghcr:
-    name: Build docker images
+    name: Image build for ghcr
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
