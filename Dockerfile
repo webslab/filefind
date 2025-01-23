@@ -9,10 +9,11 @@ COPY ./composer.lock /app/composer.lock
 RUN composer install --ignore-platform-req=ext-gd
 
 ##
-FROM php:8.1-fpm-alpine
+FROM chialab/php:8.2-fpm
+# FROM php:8.1-fpm-alpine
 # RUN apk add --no-cache libpng-dev libwebp-dev
-RUN apk add --no-cache libpng-dev libjpeg-turbo-dev libwebp-dev libxpm-dev libvpx-dev
-RUN docker-php-ext-install gd
+# RUN apk add --no-cache libpng-dev libjpeg-turbo-dev libwebp-dev libxpm-dev libvpx-dev
+# RUN docker-php-ext-install gd
 
 #ADD docker/php.ini /usr/local/etc/php/php.ini
 RUN mv "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
