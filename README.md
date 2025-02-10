@@ -29,7 +29,8 @@ podman login --username webslab --password "<password>"
 
 ```bash
 # arm
-podman build --rm -t webslab/filefind:v0.1.1-arm64 --platform=linux/arm64 .
+<!-- podman build --rm -t webslab/filefind:v0.1.2-arm64 --platform=linux/arm64 . -->
+podman build --rm -t webslab/filefind:v0.1.2-amd64 --platform=linux/amd64 .
 
 # wip
 # podman build --rm -t webslab/filefind:latest --platform=linux/arm64,linux/amd64 .
